@@ -14,6 +14,7 @@ export default function Signup() {
         if(auth){
             navigate('/products');
         }
+        
     },[])
     const handleSignup=async()=>{
 
