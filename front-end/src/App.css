@@ -10,6 +10,9 @@
 .cards img{
   width:35%;
 }
+.login span,.signup span{
+  color:red;
+}
 .nav{
   color: white;
   padding: 14px;
