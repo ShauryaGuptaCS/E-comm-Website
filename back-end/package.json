@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "build": "npm install && npm run build"
+    "build": "npm install"
   }
   
   
