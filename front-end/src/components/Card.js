@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Table} from 'react-bootstrap';
+
 export default function Card(props) {
   
   const [addDisable,setAddDisable]=useState('');
@@ -61,8 +61,8 @@ export default function Card(props) {
     }
   }
   return (
-      <div className='card'>
-        <div className='card-img'>
+      <div className='cards'>
+        
         <img src={`http://localhost:4500${props.imageUrl}`}
         alt="product_image" 
         style={{
@@ -72,10 +72,10 @@ export default function Card(props) {
         paddingLeft:"1%"
         }}
         />
-        </div>
+        
         <div className="card-div">
           
-          <Table bordered striped hover>   
+          <table>   
             <tbody>
               <tr>
                 <td><b>Product Name</b></td>
@@ -109,17 +109,17 @@ export default function Card(props) {
                 <td><b>Description</b></td>
                 <td>{`${props.description}`}</td>
               </tr>
-          
+              <tr>
+              <td><button  style={{backgroundColor:'blue',color:'white'}} onClick={handleAdd} className='addBtn' disabled={addDisable}>ADD</button> </td> 
+              <td><button  style={{backgroundColor:'blue',color:'white'}} onClick={handleRemove} className='removeBtn' disabled={removeDisable}>REMOVE</button></td>
+            
+              </tr>
             </tbody>
 
           
-          </Table>
+          </table>
           </div>
-          <span>
-          <button onClick={handleAdd} className='addBtn' disabled={addDisable}>ADD</button>  
-          <button onClick={handleRemove} className='removeBtn' disabled={removeDisable}>REMOVE</button>
-            
-          </span>
+          
           
             
       

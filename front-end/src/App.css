@@ -1,15 +1,14 @@
 .card-div {
-  width: 100%;
+  width: 65%;
+  color: white;
+}
+.card-div table{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.card span{width: 100%; display: flex; justify-content: center;align-items: center;}
-.card-img{
-  width:100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.cards img{
+  width:35%;
 }
 .nav{
   color: white;
@@ -36,16 +35,19 @@
 button:disabled{
   background-color: grey;
 }
-.card{
+.cards{
   display: flex;
   width:100%;
   border:1px solid white;
   margin:100px 0;
 }
-Table{
-  width:100%;
+.cards tbody{
+  border: 1px solid white;
 }
-.card img{
+tbody tr td{
+  border: 1px solid white;
+}
+.cards img{
   
   width: 35%;
   height: 296px;

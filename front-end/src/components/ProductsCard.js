@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from 'react-bootstrap'
+
 export default function ProductsCard(props) {
   const handleAddToCart=()=>{
 
@@ -8,8 +8,8 @@ export default function ProductsCard(props) {
 
   }
   return (
-    <div className='card'>
-        <div className='card-img'>
+    <div className='cards'>
+        
         <img src={`http://localhost:4500${props.imageUrl}`}
         alt="product_image" 
         style={{
@@ -19,10 +19,10 @@ export default function ProductsCard(props) {
         paddingLeft:"1%"
         }}
         />
-        </div>
+        
         <div className="card-div">
           
-          <Table bordered striped hover>   
+          <table>   
             <tbody>
               <tr>
                 <td><b>Product Name</b></td>
@@ -56,17 +56,17 @@ export default function ProductsCard(props) {
                 <td><b>Description</b></td>
                 <td>{`${props.description}`}</td>
               </tr>
-          
+              <tr>
+                <td><button className='btn' style={{backgroundColor:'blue',color:'white'}} onClick={handleAddToCart} >Add To Cart</button></td>  
+                <td><button className='btn' style={{backgroundColor:'blue',color:'white'}} onClick={handleBuy} >Buy</button></td>
+            
+              </tr>
             </tbody>
 
           
-          </Table>
+          </table>
           </div>
-          <span>
-          <button onClick={handleAddToCart} >Add To Cart</button>  
-          <button onClick={handleBuy} >Buy</button>
-            
-          </span>
+          
           
             
       
