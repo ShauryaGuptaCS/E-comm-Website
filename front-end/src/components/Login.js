@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 // const BASE_URL=process.env.BASE_URL;
+console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 export default function Login() {
 
     const [username,setUsername]=useState('');
@@ -41,7 +42,7 @@ export default function Login() {
           return;
         }
         
-        let result =await fetch(`http://localhost:4500/login`,{
+        let result =await fetch(`${process.env.REACT_APP_API_URL}/login`,{
             method:'post',
             body:JSON.stringify({username,password}),
             headers:{
@@ -88,7 +89,7 @@ export default function Login() {
       {error && !password && <span>{passErrorMsg}</span>}
 
 
-      <Button primary onClick={handleLogin}>Submit</Button>
+      <button onClick={handleLogin}>Submit</button>
     </div>
   )
 }

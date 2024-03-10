@@ -9,7 +9,7 @@ export default function Card(props) {
   },[])
   const disableButton=async()=>{
     const key=props._id;
-    let result = await fetch(`http://localhost:4500/checkProduct/${key}`);
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/checkProduct/${key}`);
     result=await result.json();
     if(result.productId){
       setAddDisable('disabled');
@@ -26,7 +26,7 @@ export default function Card(props) {
     const price=props.price;
     const productName=props.productName;
     const productId=props._id;
-    let result=await fetch('http://localhost:4500/products',{
+    let result=await fetch(`${process.env.REACT_APP_API_URL}/products`,{
       method:'post',
       body:JSON.stringify({category,description,imageUrl,owner,ownerAddress,ownerCountry,price,productName,productId}),
       headers:{
@@ -46,7 +46,7 @@ export default function Card(props) {
   }
   const handleRemove=async()=>{
     const key=props._id;
-    let result = await fetch(`http://localhost:4500/deleteProduct/${key}`,{
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/deleteProduct/${key}`,{
       method:'delete'
     });
     result=await result.json();
@@ -63,7 +63,7 @@ export default function Card(props) {
   return (
       <div className='cards'>
         
-        <img src={`http://localhost:4500${props.imageUrl}`}
+        <img src={`${process.env.REACT_APP_API_URL}${props.imageUrl}`}
         alt="product_image" 
         style={{
         width:"35%",
@@ -110,8 +110,8 @@ export default function Card(props) {
                 <td>{`${props.description}`}</td>
               </tr>
               <tr>
-              <td><button  style={{backgroundColor:'blue',color:'white'}} onClick={handleAdd} className='addBtn' disabled={addDisable}>ADD</button> </td> 
-              <td><button  style={{backgroundColor:'blue',color:'white'}} onClick={handleRemove} className='removeBtn' disabled={removeDisable}>REMOVE</button></td>
+              <td><button   onClick={handleAdd} className='addBtn' disabled={addDisable}>ADD</button> </td> 
+              <td><button   onClick={handleRemove} className='removeBtn' disabled={removeDisable}>REMOVE</button></td>
             
               </tr>
             </tbody>

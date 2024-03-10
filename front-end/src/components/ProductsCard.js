@@ -10,7 +10,7 @@ export default function ProductsCard(props) {
   return (
     <div className='cards'>
         
-        <img src={`http://localhost:4500${props.imageUrl}`}
+        <img src={`${process.env.REACT_APP_API_URL}${props.imageUrl}`}
         alt="product_image" 
         style={{
         width:"35%",
@@ -57,8 +57,8 @@ export default function ProductsCard(props) {
                 <td>{`${props.description}`}</td>
               </tr>
               <tr>
-                <td><button className='btn' style={{backgroundColor:'blue',color:'white'}} onClick={handleAddToCart} >Add To Cart</button></td>  
-                <td><button className='btn' style={{backgroundColor:'blue',color:'white'}} onClick={handleBuy} >Buy</button></td>
+                <td><button  onClick={handleAddToCart} >Add To Cart</button></td>  
+                <td><button  onClick={handleBuy} >Buy</button></td>
             
               </tr>
             </tbody>

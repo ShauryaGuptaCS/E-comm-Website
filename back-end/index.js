@@ -140,7 +140,7 @@ app.post('/products',async(req,res)=>{
         res.send({error:"internal server error"});
     }
 })
-const PORT=process.env.PORT;
+const PORT=process.env.PORT ||4500;
 app.listen(process.env.PORT);
 console.log(process.env.PORT);
 console.log(process.env.MONGO_URL);

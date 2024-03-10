@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const BASE_URL=process.env.BASE_URL;
+
 export default function Signup() {
     const [username,setUsername]=useState('');
     const [password,setPassword]=useState('');
@@ -36,7 +36,7 @@ export default function Signup() {
           return;
         }
         
-        let result=await fetch(`http://localhost:4500/signup`,{
+        let result=await fetch(`${process.env.REACT_APP_API_URL}/signup`,{
             method:'post',
             body:JSON.stringify({username,password}),
             headers:{

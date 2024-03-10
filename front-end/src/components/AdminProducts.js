@@ -9,7 +9,7 @@ export default function AdminProducts() {
   
   const getData = async () => {
 
-    let result = await fetch("http://localhost:4500/displayAdmin");
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/displayAdmin`);
     result = await result.json();
     if (result) {
       setProducts(result);

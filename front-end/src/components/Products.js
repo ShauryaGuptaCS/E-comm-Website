@@ -7,7 +7,7 @@ export default function Products() {
     getData();
   }, []);
   const getData = async () => {
-    let result = await fetch("http://localhost:4500/displayProducts");
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/displayProducts`);
     result = await result.json();
     if (result) {
       setProducts(result);
