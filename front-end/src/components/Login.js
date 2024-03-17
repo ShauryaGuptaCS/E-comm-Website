@@ -101,7 +101,7 @@ export default function Login() {
       {error && !password && <span>{passErrorMsg}</span>}
 
 
-      <button className="auth-btn" onTouchStart={handleLogin}>Submit</button>
+      <button className="auth-btn" onClick={handleLogin}>Submit</button>
       {loginSuccess && <AlertBox message="Login successful" onClose={handleClose} />}
     </div>
   )

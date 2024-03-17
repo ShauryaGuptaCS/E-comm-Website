@@ -80,8 +80,8 @@ export default function Card(props) {
         <img src={`${process.env.REACT_APP_API_URL}${props.imageUrl}`} alt="clothes photo" />
         <div className='card-content'>
           <h1>{props.productName} | Price :- {props.price}$</h1>
-          <button onTouchStart={handleAdd} className="card-btn" disabled={addDisable}>Add</button>
-          <button onTouchStart={handleRemove} className="card-btn" disabled={removeDisable} >Remove</button>
+          <button onClick={handleAdd} className="card-btn" disabled={addDisable}>Add</button>
+          <button onClick={handleRemove} className="card-btn" disabled={removeDisable} >Remove</button>
         </div>
       </div>
       {alert && <AlertBox message={alertMsg} onClose={handleOnClose}/>}
