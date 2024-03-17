@@ -56,7 +56,7 @@ body{
 
 .hamburger{
   margin-right:10px;
-  z-index: 12;
+  z-index: 101;
 }
 .hamburger span{
   display: block;
@@ -71,7 +71,7 @@ body{
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 8;
+  z-index: 100;
   background-color: grey;
   display: none;
 }
@@ -86,7 +86,7 @@ body{
   margin-top: 30%;
   margin-right:5%;
 }
-.hamburger-open ul a{
+.hamburger-open ul li a{
   color:white;
 }
 .hamburger-open ul a:hover{
@@ -346,92 +346,6 @@ body{
 
 
 
-/* .card-div {
-  width: 65%;
-  color: white;
-}
-.card-div table{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cards img{
-  width:35%;
-}
-
-.adminProducts, .products {
-  width: 100%;
-  text-align: center;
-}
-button:disabled{
-  background-color: grey;
-}
-.cards{
-  display: flex;
-  width:100%;
-  border:1px solid white;
-  margin:100px 0;
-}
-.cards tbody{
-  border: 1px solid white;
-}
-tbody tr td{
-  border: 1px solid white;
-}
-.cards img{
-  
-  width: 35%;
-  height: 296px;
-  object-fit: cover;
-  padding-left: 1%;
-}
-
-.addAdminProduct input {
-  display: block;
-  margin: 12px 18px;
-  padding: 17px;
-  width: 532px;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-}
-.addAdminProduct textarea {
-  margin: 12px 18px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding-left: 10px;
-  padding-top: 10px;
-} */
-
-
-/* button {
-  display: block;
-  margin-left: 18px;
-  margin-right: 18px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  padding: 10px;
-  width: 114px;
-  border: none;
-  outline: none;
-  background-color: #007BFF;
-  color: white;
-  border-radius: 34px;
-}
- */
-
-
-/* body {
-  background-image: url('./images//background_image5.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding-bottom: 500px;
-  color: white;
-  
-} */
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -510,4 +424,29 @@ tbody tr td{
   }
   
 
+
+
+  /* Adjust the hamburger icon size and position */
+  .hamburger {
+    display: block; /* Ensure the hamburger icon is visible */
+  }
+
+  .hamburger-open {
+    width: 50%;
+    height: 100%;
+  }
+
+  .hamburger-open.open {
+    display: block; /* Show the menu when open */
+  }
+
+  .hamburger-open ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  
+    margin-top: 30%;
+    margin-right:5%;
+    
+  }
 }

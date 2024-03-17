@@ -21,6 +21,7 @@ function App() {
       <Router>
         <Nav />
         <Routes>
+        
           <Route
             path="/"
             element={<PrivateComponent />}
@@ -30,7 +31,7 @@ function App() {
             <Route path="/AddAdminProduct" element={<AddAdminProduct />} />
             <Route path="/addToCart" element={<AddToCart />} />
           </Route>
-          <Route path="/home" element={<Home/>}/>
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/alert" element={<AlertBox/>}/>
