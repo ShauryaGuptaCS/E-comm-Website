@@ -9,9 +9,9 @@ import PrivateComponent from './components/PrivateComponent'; // Adjust the path
 import AddAdminProduct from './components/AddAdminProduct'; // Adjust the path based on your folder structure
 import AdminProducts from './components/AdminProducts'; // Adjust the path based on your folder structure
 import AddToCart from './components/AddToCart'; // Adjust the path based on your folder structure
+import Home from './components/Home';
+import AlertBox from './components/AlertBox';
 
-import { emojiCursor } from "cursor-effects";
-new emojiCursor({ emoji: ["🔥", "🐬", "🦆"] });
 
 
 
@@ -30,8 +30,10 @@ function App() {
             <Route path="/AddAdminProduct" element={<AddAdminProduct />} />
             <Route path="/addToCart" element={<AddToCart />} />
           </Route>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/alert" element={<AlertBox/>}/>
         </Routes>
       </Router>
     </div>

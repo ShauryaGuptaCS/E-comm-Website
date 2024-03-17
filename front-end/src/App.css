@@ -1,4 +1,352 @@
-.card-div {
+/* Body */
+*{
+  margin:0;
+  padding:0;
+}
+html,body{
+  width:100%;
+  height:100%;
+}
+body{
+  background-color: var(--sk-body-background-color, #fff);
+  color: var(--sk-body-text-color, #1d1d1f);
+}
+
+/* Nav page */
+.nav{
+  width:100%;
+  padding:11px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(240, 238, 238);
+}
+
+.nav h1{
+  margin-left: 24px;
+}
+
+
+
+
+.nav-div{
+  display: flex;
+  font-size: 18px;
+  gap: 23px;
+}
+
+.nav ul{
+  display: flex;
+  gap:23px;
+}
+.nav ul li{
+  list-style: none;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #1d1d1f;
+}
+.nav-div .active{
+  text-decoration: underline;
+}
+.nav a:hover{
+  text-decoration: underline;
+}
+
+.hamburger{
+  margin-right:10px;
+  z-index: 12;
+}
+.hamburger span{
+  display: block;
+  width:25px;
+  height:2px;
+  margin:5px 0;
+  background-color: black;
+}
+.hamburger-open{
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 8;
+  background-color: grey;
+  display: none;
+}
+.hamburger-open.open{
+  display: block;
+}
+.hamburger-open ul {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  
+  margin-top: 30%;
+  margin-right:5%;
+}
+.hamburger-open ul a{
+  color:white;
+}
+.hamburger-open ul a:hover{
+  text-decoration: underline;
+}
+.hamburger-open .active{
+  text-decoration: underline;
+}
+
+/* Home Page */
+.home{
+  width: 100%;
+  height: 100%;
+  margin:74px 0;
+}
+.home div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home div p{
+  max-width: 426px;
+}
+
+/* Authentication */
+.authentication{
+  margin-left: 25%;
+  margin-top:5%;
+}
+.authentication input{
+  display: block;
+  margin-top:10px;
+  padding:17px;
+  width:286px;
+  height:5px;
+  margin-left:15px;
+  border-radius: 5px;
+}
+
+.auth-btn{
+  display: block;
+  margin-top: 10px;
+  margin-left: 15px;
+  padding:5px;
+  width:93px;
+  height:37px;
+  background-color: #292b2c;
+  color:white;
+  cursor:pointer;
+}
+
+.auth-btn:hover{
+  background-color: rgb(23, 19, 19);
+  cursor: pointer;
+}
+
+.authentication span{
+  color:red;
+}
+
+
+/* Alert Box */
+.alertBox{
+  top:25%;
+  left:25%;
+  right:25%;
+  background-color: white;
+  width:498px;
+  height:122px;
+  z-index: 101;
+  position: fixed;
+  text-align: center;
+  padding:10px 0;
+}
+.alertBox-btn{
+  margin-top: 10px;
+  width: 217px;
+  height: 43px;
+  background-color: #292b2c;
+  padding: 3px;
+  color: white;
+}
+.alertBox-btn:hover{
+  background-color: rgb(23, 19, 19);
+  cursor: pointer;
+}
+.overlays{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: 100;/* ensure it appears on top of other elements */
+}
+
+/* AdminProducts */
+.adminProducts{
+  width:100%;
+  height:100%;
+  max-width: 100%;
+  background-color: #f5f5f7;
+}
+/* Cards */
+.card{
+  width:40%;
+  margin-left:5%;
+  margin-right:5%;
+  background-color: white;
+  height:75vh;
+  display: inline-block;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  border-radius: 23px;
+  max-height: 75vh;
+}
+.card img{
+  width: 50%;
+  height:50vh;
+  margin:2vh 25%;
+  border-radius: 28px;
+}
+.card-content{
+  width:100%;
+  height: 16vh;
+  text-align: center;
+  text-transform: uppercase;
+}
+.card-content h1{
+  font-size:5vh;
+  margin-bottom: 1vh;
+}
+.card-content p{
+  font-size:3vh;
+  margin-bottom: 1vh;
+}
+.card-btn{
+  display: inline;
+  margin:3px 10%;
+  width:25%;
+  height:6vh;
+  background-color: #292b2c;
+  color:white;
+}
+.card-btn:hover{
+  background-color: rgb(23, 19, 19);
+  cursor: pointer;
+}
+.card-btn:disabled{
+  background-color: grey;
+  cursor:not-allowed;
+}
+
+/* Product-Card */
+.product-card{
+  width:40%;
+  margin-left:5%;
+  margin-right:5%;
+  background-color: white;
+  height:75vh;
+  display: inline-block;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  border-radius: 23px;
+  max-height: 75vh;
+}
+.product-card img{
+  width: 50%;
+  height:50vh;
+  margin:2vh 25%;
+  border-radius: 28px;
+}
+.product-card-content{
+  width:100%;
+  height: 16vh;
+  text-align: center;
+  text-transform: uppercase;
+}
+.product-card-content h1{
+  font-size:5vh;
+  margin-bottom: 1vh;
+}
+.product-card-content p{
+  font-size:3vh;
+  margin-bottom: 1vh;
+}
+.product-card-btn{
+  display: inline;
+  margin:3px 10%;
+  width:25%;
+  height:6vh;
+  background-color: #292b2c;
+  color:white;
+}
+.product-card-btn:hover{
+  background-color: rgb(23, 19, 19);
+  cursor: pointer;
+}
+
+/* Products */
+.products{
+  width:100%;
+  height:100%;
+  max-width: 100%;
+  background-color: #f5f5f7;
+}
+
+/* Add Admin Products */
+.addAdminProduct{
+  margin-left: 25%;
+  margin-top:5%;
+}
+
+.addAdminProduct input{
+  display: block;
+  margin-top:10px;
+  padding:17px;
+  width:286px;
+  height:5px;
+  margin-left:15px;
+  border-radius: 5px;
+}
+
+.addAdminProduct textarea{
+  display: block;
+  margin-top:10px;
+  padding:17px;
+  width:286px;
+  height:112px;
+  margin-left:15px;
+  border-radius: 5px;
+}
+
+
+.addAdminProduct-btn{
+  display: block;
+  margin-top: 10px;
+  margin-left: 15px;
+  padding:5px;
+  width:93px;
+  height:37px;
+  background-color: #292b2c;
+  color:white;
+  cursor:pointer;
+}
+
+.addAdmin-btn:hover{
+  background-color: rgb(23, 19, 19);
+  cursor: pointer;
+}
+
+.addAdminProduct span{
+  color:red;
+}
+
+
+
+
+
+/* .card-div {
   width: 65%;
   color: white;
 }
@@ -10,27 +358,7 @@
 .cards img{
   width:35%;
 }
-.login span,.signup span{
-  color:red;
-}
-.nav{
-  color: white;
-  padding: 14px;
-  width: 90%;
-  border: 2px solid white;
-  margin: 18px 5%;
-}
-.nav li{
-  display: inline-block;
-  margin: 0 15px;
-}
-.nav a{
-  color:white;
-  text-decoration :none;
-}
-.nav a:hover{
-  color:skyblue;
-}
+
 .adminProducts, .products {
   width: 100%;
   text-align: center;
@@ -74,20 +402,10 @@ tbody tr td{
   border-radius: 5px;
   padding-left: 10px;
   padding-top: 10px;
-}
-.signup, .login, .addAdminProduct {
-  margin-left: 25%;
-}
-.signup input, .login input {
-  display: block;
-  margin: 12px 18px;
-  padding: 13px;
-  width: 456px;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-}
-button {
+} */
+
+
+/* button {
   display: block;
   margin-left: 18px;
   margin-right: 18px;
@@ -101,13 +419,10 @@ button {
   color: white;
   border-radius: 34px;
 }
+ */
 
-*{
-  margin:0;
-  padding:0;
-}
 
-body {
+/* body {
   background-image: url('./images//background_image5.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -115,13 +430,8 @@ body {
   padding-bottom: 500px;
   color: white;
   
-}
-html,body{
-  width:100%;
-  height:100%;
+} */
 
-
-}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -150,4 +460,54 @@ html,body{
   to {
     transform: rotate(360deg);
   }
+}
+@media (max-width: 600px) {
+  /* Nav page */
+  .nav ul{
+    display: none;
+  }
+  
+  .hamburger-open{
+    width:75%;
+  }
+
+  /* Home page */
+  .home div p{
+    max-width: 353px;
+  }
+
+  /* AlertBox */
+  .alertBox{
+    margin-right: 0;
+    margin-left:0;
+    max-width: 60%;
+  }
+  .alertBox-btn{
+    width:200px;
+
+  }
+
+  /* authentication  */
+  .authentication input{
+    width:206px;
+  }
+  /* card */
+  .card{
+    width:80%;
+    overflow:scroll;
+  }
+  /* product-card */
+  .product-card{
+    width:80%;
+    overflow:scroll;
+  }
+  /* addAdminProduct */
+  .addAdminProduct input{
+    width:206px;
+  }
+  .addAdminProduct textarea{
+    width:206px;
+  }
+  
+
 }

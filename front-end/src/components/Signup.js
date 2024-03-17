@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import AlertBox from './AlertBox';
 
 
 export default function Signup() {
@@ -8,6 +9,7 @@ export default function Signup() {
     const [error,setError]=useState(false);
     const [passErrorMsg,setPassErrorMsg]=useState('');
     const [userErrorMsg,setUserErrorMsg]=useState('');
+    const [signupSuccess,setSignupSuccess]=useState(false);
     const navigate=useNavigate();
     useEffect(()=>{
       const auth=localStorage.getItem('user');
@@ -16,6 +18,9 @@ export default function Signup() {
         }
         
     },[])
+    const handleOnClose=()=>{
+      setSignupSuccess(false);
+    }
     const handleSignup=async()=>{
 
         if(!username && !password){
@@ -47,7 +52,8 @@ export default function Signup() {
         result=await result.json();
         console.log(result);
         if(result.username){
-            alert('signup successful');
+            // alert('signup successful');
+            setSignupSuccess(true);
             setError(false);
             setUsername('');
             setPassword('');
@@ -59,12 +65,13 @@ export default function Signup() {
           setUsername('');
         }
         else{
-            alert('signup unsuccessful');
+            // alert('signup unsuccessful');
+            setSignupSuccess(true);
         }
 
     }
   return (
-    <div className='signup'>
+    <div className='authentication'>
       <h1>Signup Page</h1>
       <input type="text" placeholder='enter your username'
       value={username} onChange={(e)=>{
@@ -79,7 +86,9 @@ export default function Signup() {
       {error && !password && <span>{passErrorMsg}</span>}
 
 
-      <button onClick={handleSignup}>Submit</button>
+      <button className="auth-btn" onClick={handleSignup}>Submit</button>
+    
+      {signupSuccess && <AlertBox message="Signup Successful" onClose={handleOnClose} />}
     </div>
   )
 }

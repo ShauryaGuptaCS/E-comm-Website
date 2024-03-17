@@ -141,7 +141,7 @@ export default function AddAdminProduct() {
         }}
       />
       {error && !description && <span>enter a valid description</span>}
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="addAdminProduct-btn" onClick={handleSubmit}>Submit</button>
 
     </div>
   );

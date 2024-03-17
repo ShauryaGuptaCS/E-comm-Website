@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 
 export default function Nav() {
   const navigate = useNavigate();
@@ -9,56 +9,148 @@ export default function Nav() {
     navigate("/products");
   };
   let navContent;
+  const [isMenuOpen,setIsMenuOpen]=useState(false);
+
+  const handleHamburger=()=>{
+    
+    setIsMenuOpen(!isMenuOpen);
+    document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
+    
+  }
 
   if (!auth) {
     navContent = (
-      <ul className="nav">
-        <li>
-          <Link to="/signup">Signup</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
+      <div className="nav">
+        <h1>StyleHub</h1>
+        <div className="nav-div">
+        <ul>
+          <li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/signup">Signup</NavLink>
+          </li>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+        </ul>
+        <div onClick={handleHamburger} className="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div className={`hamburger-open ${isMenuOpen ? "open" : ""}`}>
+          <ul>
+            <li>
+              <NavLink to="/home">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/signup">Signup</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
     );
   } else if (JSON.parse(auth).username === "admin") {
     navContent = (
-      <ul className="nav">
-        <li>
-          <Link to="/AddAdminProduct">Add Product</Link>
-        </li>
-        <li>
-          <Link to="/AdminProducts">Admin Products</Link>
-        </li>
-        <li>
-          <Link to="/products">Products</Link>
-        </li>
-        <li>
-          <Link to="/addToCart">Add To Cart</Link>
-        </li>
-        <li>
-          <Link onClick={logout} to="/login">
-            Logout({JSON.parse(auth).username})
-          </Link>
-        </li>
-      </ul>
+      <div className="nav">
+        <h1>StyleHub</h1>
+        <div className="nav-div">
+        <ul>
+          <li>
+            <NavLink to="/AddAdminProduct">Add Product</NavLink>
+          </li>
+          <li>
+            <NavLink to="/AdminProducts">Admin Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/products">Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/addToCart">Add To Cart</NavLink>
+          </li>
+          <li>
+            <NavLink onClick={logout} to="/login">
+              Logout({JSON.parse(auth).username})
+            </NavLink>
+          </li>
+        </ul>
+        <div onClick={handleHamburger} className="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div className={`hamburger-open ${isMenuOpen ? "open" : ""}`}>
+          <ul>
+          <li>
+            <NavLink to="/AddAdminProduct">Add Product</NavLink>
+          </li>
+          <li>
+            <NavLink to="/AdminProducts">Admin Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/products">Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/addToCart">Add To Cart</NavLink>
+          </li>
+          <li>
+            <NavLink onClick={logout} to="/login">
+              Logout({JSON.parse(auth).username})
+            </NavLink>
+          </li>
+          </ul>
+        </div>
+        </div>
+      </div>
     );
   } else {
     navContent = (
-      <ul className="nav">
-        <li>
-          <Link to="/products">Products</Link>
-        </li>
-        <li>
-          <Link to="/addToCart">Add To Cart</Link>
-        </li>
-        <li>
-          <Link onClick={logout} to="/login">
-            Logout({JSON.parse(auth).username})
-          </Link>
-        </li>
-      </ul>
+      <div className="nav">
+        <h1>StyleHub</h1>
+        <div className="nav-div">
+        <ul>
+          <li>
+            <NavLink to="/products">Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/addToCart">Add To Cart</NavLink>
+          </li>
+          <li>
+            <NavLink onClick={logout} to="/login">
+              Logout({JSON.parse(auth).username})
+            </NavLink>
+          </li>
+        </ul>
+        <div onClick={handleHamburger} className="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div className={`hamburger-open ${isMenuOpen ? "open" : ""}`}>
+          <ul>
+          <li>
+            <NavLink to="/products">Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/addToCart">Add To Cart</NavLink>
+          </li>
+          <li>
+            <NavLink onClick={logout} to="/login">
+              Logout({JSON.parse(auth).username})
+            </NavLink>
+          </li>
+          </ul>
+        </div>
+        </div>
+      </div>
     );
   }
-  return <div>{navContent}</div>;
+  return <>
+  {navContent}
+  </>;
 }

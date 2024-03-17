@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import AlertBox from './AlertBox';
 // const BASE_URL=process.env.BASE_URL;
 console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 export default function Login() {
@@ -12,6 +13,7 @@ export default function Login() {
     const [userErrorMsg,setUserErrorMsg]=useState('');
     const [errorMsg,setErrorMsg]=useState('');
     const [errorLogin,setErrorLogin]=useState(false);
+    const [loginSuccess,setLoginSuccess]=useState(false);
     const navigate=useNavigate();
     useEffect(()=>{
         const auth=localStorage.getItem('user');
@@ -19,8 +21,13 @@ export default function Login() {
             navigate('/products');
         }
     },[])
+    const handleClose=()=>{
+      setLoginSuccess(false);
+    }
     
-    
+    function temp(result){
+      
+    }
     const handleLogin=async()=>{
 
         if(!username && !password){
@@ -52,19 +59,23 @@ export default function Login() {
         result=await result.json();
         console.log(result);
         if(result.username){
-            alert('login successful');
+            // alert('login successful');
             localStorage.setItem('user',JSON.stringify(result));
             setUsername('');
             setPassword('');
+            
+            setLoginSuccess(true);
+            
             if(result.username === "admin"){
-                navigate('/AdminProducts');
+                  
+              navigate('/AdminProducts');
             }
             else{
                 navigate('/products');
             }
-            
-
-        }
+              
+              
+          }
         else{
             setErrorLogin(true);
             setError(false);
@@ -73,7 +84,8 @@ export default function Login() {
 
     }
   return (
-    <div className='login'>
+    <div className='authentication'>
+      
       <h1>Login Page</h1>
       {errorLogin && <span>{errorMsg}</span>}
       <input type="text" placeholder='enter your username'
@@ -89,7 +101,8 @@ export default function Login() {
       {error && !password && <span>{passErrorMsg}</span>}
 
 
-      <button onClick={handleLogin}>Submit</button>
+      <button className="auth-btn" onClick={handleLogin}>Submit</button>
+      {loginSuccess && <AlertBox message="Login successful" onClose={handleClose} />}
     </div>
   )
 }
