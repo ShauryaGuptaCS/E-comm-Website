@@ -5,7 +5,7 @@ export default function AlertBox(props) {
     <>
     <div className='alertBox'>
         <h3>{props.message}</h3>
-        <button onClick={props.onClose} className='alertBox-btn'>Close</button>
+        <button onTouchStart={props.onClose} className='alertBox-btn'>Close</button>
     </div>
 
     <div className="overlays"></div>

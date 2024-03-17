@@ -86,7 +86,7 @@ export default function Signup() {
       {error && !password && <span>{passErrorMsg}</span>}
 
 
-      <button className="auth-btn" onClick={handleSignup}>Submit</button>
+      <button className="auth-btn" onTouchStart={handleSignup}>Submit</button>
     
       {signupSuccess && <AlertBox message="Signup Successful" onClose={handleOnClose} />}
     </div>
