@@ -3,6 +3,7 @@ import ProductsCard from "./ProductsCard";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [cartItem,setCartItems]=useState([]);
   useEffect(() => {
     getData();
   }, []);
@@ -17,7 +18,7 @@ export default function Products() {
     <div>
       <div className="products">
       {products.map((element,index) => (
-        <ProductsCard key={element._id} {...element} />
+        <ProductsCard key={element._id} {...element} cartItem={cartItem} setCartItems={setCartItems} />
       ))}
 
       </div>

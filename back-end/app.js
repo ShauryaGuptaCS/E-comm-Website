@@ -7,6 +7,9 @@ const app=express();
 const User=require('./db/User');
 const adminProduct=require('./db/AdminProduct')
 const Products=require('./db/Products')
+const Carts=require('./db/Cart')
+
+
 
 app.use(express.json());
 app.use(cors());
@@ -139,6 +142,22 @@ app.post('/products',async(req,res)=>{
     catch{
         res.send({error:"internal server error"});
     }
+})
+
+app.post('/carts/:key',async(req,res)=>{
+    try{
+        let data=await Carts.findOne({username:req.params.key});
+        if(data){
+
+        }
+        else{
+
+        }
+    }
+    catch{
+
+    }
+
 })
 const PORT=process.env.PORT ||4500;
 app.listen(process.env.PORT);

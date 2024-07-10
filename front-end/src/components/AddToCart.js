@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function AddToCart() {
+export default function AddToCart(props) {
+  
+
   return (
     <div>
-      <h1>Add To Cart Page</h1>
+      
     </div>
-  )
+  );
 }
