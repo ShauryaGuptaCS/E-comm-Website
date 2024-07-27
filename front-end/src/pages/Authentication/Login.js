@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+
 import AlertBox from '../../components/AlertBox';
-// const BASE_URL=process.env.BASE_URL;
+
 console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 export default function Login() {
 
@@ -20,7 +20,7 @@ export default function Login() {
         if(auth){
             navigate('/products');
         }
-    },[])
+    })
     const handleClose=()=>{
       setLoginSuccess(false);
     }

@@ -17,7 +17,7 @@ export default function Signup() {
             navigate('/products');
         }
         
-    },[])
+    })
     const handleOnClose=()=>{
       setSignupSuccess(false);
     }

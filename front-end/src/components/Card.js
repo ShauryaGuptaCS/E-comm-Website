@@ -13,7 +13,7 @@ export default function Card(props) {
   }
   useEffect(()=>{
     disableButton();
-  },[])
+  })
   const disableButton=async()=>{
     const key=props._id;
     let result = await fetch(`${process.env.REACT_APP_API_URL}/checkProduct/${key}`);
@@ -77,7 +77,7 @@ export default function Card(props) {
   return (
       <>
       <div className='card'>
-        <img src={`${process.env.REACT_APP_API_URL}${props.imageUrl}`} alt="clothes photo" />
+        <img src={`${process.env.REACT_APP_API_URL}${props.imageUrl}`} alt={props.productName} />
         <div className='card-content'>
           <h1>{props.productName} | Price :- {props.price}$</h1>
           <button onClick={handleAdd} className="card-btn" disabled={addDisable}>Add</button>

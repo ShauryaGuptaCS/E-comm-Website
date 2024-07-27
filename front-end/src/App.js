@@ -11,13 +11,13 @@ import AdminProducts from './pages/AdminProducts'; // Adjust the path based on y
 import AddToCart from './pages/AddToCart'; // Adjust the path based on your folder structure
 import Home from './pages/Authentication/Home';
 import AlertBox from './components/AlertBox';
-import { useCart , CartProvider } from './context/cart.context';
+import {  CartProvider } from './context/cart.context';
 
 
 
 
 function App() {
-  const {addCartItem , deleteCartItem , cartItems} = useCart();
+  
   return (
     <CartProvider>
       <Router>
