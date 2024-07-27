@@ -37,10 +37,27 @@ export const CartProvider = ({ children }) => {
     };
 
     const deleteCartItem = (id) => {
-        setCartItems((prevCartItems) =>
-            prevCartItems.filter((item) => item._id !== id)
-        );
+        setTotalProduct(totalProduct - 1)
+        setCartItems((prevCartItems) => {
+            // Find the item to update
+            const updatedCartItems = prevCartItems.map((item) => {
+                if (item._id === id) {
+                    // Decrease the quantity by 1
+                    const updatedQuantity = item.quantity - 1;
+                    
+                    // Return the item with updated quantity
+                    return updatedQuantity > 0 
+                        ? { ...item, quantity: updatedQuantity }
+                        : null; // Return null if quantity is zero
+                }
+                return item;
+            });
+            console.log(updatedCartItems);
+            // Remove items that are null (i.e., quantity reached zero)
+            return updatedCartItems.filter((item) => item !== null);
+        });
     };
+    
 
     return (
         <CartContext.Provider value={{ cartItems, addCartItem, deleteCartItem , totalProduct }}>

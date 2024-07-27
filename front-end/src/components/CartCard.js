@@ -5,7 +5,7 @@ import { useCart } from '../context/cart.context';
 export default function CartsCard(props) {
  
 
-  const { addCartItem} = useCart();
+  const { addCartItem , deleteCartItem} = useCart();
 
   
   const handleAddToCart = () => {
@@ -13,7 +13,7 @@ export default function CartsCard(props) {
   };
 
   const handleDeleteCart =  () => {
-    
+    deleteCartItem(props.element._id)
   };
 
   return (

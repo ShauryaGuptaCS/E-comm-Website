@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AlertBox from "../components/AlertBox";
 
 export default function AddAdminProduct() {
   const [error,setError]=useState(false);
@@ -10,7 +11,14 @@ export default function AddAdminProduct() {
   const [ownerCountry, setOwnerCountry] = useState("");
   const [ownerAddress, setOwnerAddress] = useState("");
   const [description, setDescription] = useState("");
+  const [alertMsg , setAlertMsg]=useState("");
+  const [toggleAlert , setToggleAlert]= useState(false);
   const [showImage,setShowImage]=useState(null);
+
+  const handleOnClose = ()=>{
+    setAlertMsg("");
+    setToggleAlert(false);
+  }
   const handleImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -49,7 +57,8 @@ export default function AddAdminProduct() {
     
     result=await result.json();
     if(result.productName){
-      alert('admin product added');
+      setAlertMsg("Product added successfully");
+      setToggleAlert(true);
       setSelectedImage("")
       setProductName("");
       setCategory("");
@@ -61,7 +70,8 @@ export default function AddAdminProduct() {
       setShowImage(null);
     }
     else{
-      alert('admin product not added');
+      setAlertMsg("Product not added successfully");
+      setToggleAlert(true);
     }
   }
   return (
@@ -142,7 +152,7 @@ export default function AddAdminProduct() {
       />
       {error && !description && <span>enter a valid description</span>}
       <button className="addAdminProduct-btn" onClick={handleSubmit}>Submit</button>
-
+      {toggleAlert && <AlertBox message = {alertMsg} onClose ={handleOnClose} />}
     </div>
   );
 }

@@ -7,6 +7,10 @@ export default function AdminProducts() {
 
   }, []);
   
+  const handleRemove = (id) => {
+    setProducts(products.filter(product => product._id !== id));
+  };
+
   const getData = async () => {
 
     let result = await fetch(`${process.env.REACT_APP_API_URL}/displayAdmin`);
@@ -19,7 +23,7 @@ export default function AdminProducts() {
     <div>
       <div className="adminProducts">
       {products.map((element,index) => (
-        <Card key={element._id} {...element} />
+        <Card key={element._id} {...element} onRemove={handleRemove} />
       ))}
 
       </div>

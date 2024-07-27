@@ -128,6 +128,18 @@ app.delete('/deleteProduct/:key',async(req,res)=>{
     }
 })
 
+
+app.delete('/deleteProductPermanently/:key',async(req,res)=>{
+    try{
+    const result=await adminProduct.deleteOne({_id:req.params.key});
+    await Products.deleteOne({productId : req.params.key});
+    res.send(result);
+    }
+    catch(error){
+        res.send({error:error});
+    }
+})
+
 app.post('/products',async(req,res)=>{
     try{
         const data=new Products(req.body);

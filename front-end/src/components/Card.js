@@ -23,6 +23,25 @@ export default function Card(props) {
       setRemoveDisable('');
     }
   }
+  const handleRemovePermanently = async()=>{
+    const key = props._id;
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/deleteProductPermanently/${key}`, {
+      method: 'delete'
+    });
+    result = await result.json();
+    console.log(result);
+    if (result.deletedCount === 1) {
+      setAlert(true);
+      setAlertMsg("Product removed permanently");
+      setAddDisable('');
+      setRemoveDisable('disabled');
+      
+      props.onRemove(key);
+    } else {
+      setAlert(true);
+      setAlertMsg("Failed to remove the product permanently");
+    }
+  }
   const handleAdd=async()=>{
     const category=props.category;
     const description=props.description;
@@ -79,10 +98,11 @@ export default function Card(props) {
       <div className='card'>
         <img src={`${process.env.REACT_APP_API_URL}${props.imageUrl}`} alt={props.productName} />
         <div className='card-content'>
-          <h1>{props.productName} | Price :- {props.price}$</h1>
+          <h1>{props.productName} | Price :- {props.price}₹</h1>
           <button onClick={handleAdd} className="card-btn" disabled={addDisable}>Add</button>
           <button onClick={handleRemove} className="card-btn" disabled={removeDisable} >Remove</button>
         </div>
+        <button className="card-remove" onClick={handleRemovePermanently}>Remove Permanently</button>
       </div>
       {alert && <AlertBox message={alertMsg} onClose={handleOnClose}/>}
       </>

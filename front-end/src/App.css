@@ -212,12 +212,12 @@ body{
   margin-left:5%;
   margin-right:5%;
   background-color: white;
-  height:75vh;
+  height:auto;
   display: inline-block;
   margin-bottom: 5vh;
   margin-top: 5vh;
   border-radius: 23px;
-  max-height: 75vh;
+  max-height: 100vh;
 }
 .card img{
   width: 50%;
@@ -256,6 +256,20 @@ body{
   cursor:not-allowed;
 }
 
+.card-remove {
+  display: block;
+  margin:10px auto;
+  padding:15px;
+  width:200px;
+  border:none;
+  border-radius: 5%;
+  background-color: rgb(220, 53, 69);
+  color: white;
+}
+
+.card-remove:hover{
+  background-color: rgb(200, 50, 65);
+}
 /* Product-Card */
 .product-card{
   width:40%;
