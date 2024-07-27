@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import AlertBox from './AlertBox';
+import AlertBox from '../../components/AlertBox';
 
 
 export default function Signup() {

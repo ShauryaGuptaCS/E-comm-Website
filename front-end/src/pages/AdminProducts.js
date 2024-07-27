@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import ProductsCard from "./ProductsCard";
-
-export default function Products() {
+import Card from "../components/Card";
+export default function AdminProducts() {
   const [products, setProducts] = useState([]);
-  const [cartItem,setCartItems]=useState([]);
   useEffect(() => {
     getData();
+
   }, []);
+  
   const getData = async () => {
-    let result = await fetch(`${process.env.REACT_APP_API_URL}/displayProducts`);
+
+    let result = await fetch(`${process.env.REACT_APP_API_URL}/displayAdmin`);
     result = await result.json();
     if (result) {
       setProducts(result);
@@ -16,9 +17,9 @@ export default function Products() {
   };
   return (
     <div>
-      <div className="products">
+      <div className="adminProducts">
       {products.map((element,index) => (
-        <ProductsCard key={element._id} {...element} cartItem={cartItem} setCartItems={setCartItems} />
+        <Card key={element._id} {...element} />
       ))}
 
       </div>

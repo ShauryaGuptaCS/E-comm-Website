@@ -7,7 +7,7 @@ const app=express();
 const User=require('./db/User');
 const adminProduct=require('./db/AdminProduct')
 const Products=require('./db/Products')
-const Carts=require('./db/Cart')
+
 
 
 
@@ -144,22 +144,8 @@ app.post('/products',async(req,res)=>{
     }
 })
 
-app.post('/carts/:key',async(req,res)=>{
-    try{
-        let data=await Carts.findOne({username:req.params.key});
-        if(data){
 
-        }
-        else{
-
-        }
-    }
-    catch{
-
-    }
-
-})
 const PORT=process.env.PORT ||4500;
-app.listen(process.env.PORT);
+app.listen(PORT);
 console.log(process.env.PORT);
 console.log(process.env.MONGO_URL);

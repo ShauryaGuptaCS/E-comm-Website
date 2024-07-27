@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { useCart } from "../context/cart.context";
 
 export default function Nav() {
   const navigate = useNavigate();
   const auth = localStorage.getItem("user");
+  const {totalProduct} = useCart();
   const logout = () => {
     localStorage.clear();
     navigate("/products");
@@ -71,7 +73,7 @@ export default function Nav() {
             <NavLink to="/products">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/addToCart">Add To Cart</NavLink>
+            <NavLink to="/addToCart">Add To Cart({totalProduct})</NavLink>
           </li>
           <li>
             <NavLink onClick={logout} to="/login">
@@ -118,7 +120,7 @@ export default function Nav() {
             <NavLink to="/products">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/addToCart">Add To Cart</NavLink>
+            <NavLink to="/addToCart">Add To Cart({totalProduct})</NavLink>
           </li>
           <li>
             <NavLink onClick={logout} to="/login">

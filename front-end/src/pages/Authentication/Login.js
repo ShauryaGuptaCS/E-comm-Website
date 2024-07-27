@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import AlertBox from './AlertBox';
+import AlertBox from '../../components/AlertBox';
 // const BASE_URL=process.env.BASE_URL;
 console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 export default function Login() {
@@ -25,9 +25,7 @@ export default function Login() {
       setLoginSuccess(false);
     }
     
-    function temp(result){
-      
-    }
+    
     const handleLogin=async()=>{
 
         if(!username && !password){
